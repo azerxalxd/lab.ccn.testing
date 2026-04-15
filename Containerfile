@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/aurora:latest
+FROM quay.io/fedora/fedora-coreos:stable
 
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
