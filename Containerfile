@@ -4,7 +4,7 @@ COPY build_files /
 
 # Base Image
 FROM ghcr.io/void-linux/void-glibc-full:20260401r1
-RUN xbps-install -Sy linux
+RUN xbps-install -Sy linux linux-headers
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
 # FROM ghcr.io/ublue-os/bluefin-nvidia:stable
