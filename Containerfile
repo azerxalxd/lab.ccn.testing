@@ -7,6 +7,7 @@ FROM ghcr.io/void-linux/void-glibc-full:20260401r1
 #RUN mkdir /usr/lib/modules
 RUN xbps-install -Sy base-system base-files
 RUN xbps-remove -Ry base-container
+RUN ln -s /boot/vmlinuz-6.12.81_1 /usr/lib/modules/6.12.81_1/vmlinuz
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
