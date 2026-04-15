@@ -16,6 +16,7 @@ dnf5 -y install libreoffice
 dnf5 -y install putty
 dnf5 -y install remmina
 
+echo 'SUBSYSTEMS=="usb", SUBSYSTEM=="block", TAG+="uaccess", MODE="660"' >> /etc/udev/rules.d/00-usb-permissions.rules
 #### Example for enabling a System Unit File
 
 #systemctl enable podman.socket
