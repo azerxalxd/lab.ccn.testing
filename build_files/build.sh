@@ -17,6 +17,8 @@ dnf5 -y install putty
 dnf5 -y install remmina
 
 echo 'SUBSYSTEMS=="usb", SUBSYSTEM=="block", TAG+="uaccess", MODE="660"' >> /etc/udev/rules.d/00-usb-permissions.rules
+rm /usr/share/plymouth/themes/spinner/watermark.png
+wget https://raw.githubusercontent.com/JunePrimavera/testing.lab/refs/heads/main/build_files/sloppy.png -o /usr/share/plymouth/themes/spinner/watermark.png
 #### Example for enabling a System Unit File
 
 #systemctl enable podman.socket
