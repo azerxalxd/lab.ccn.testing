@@ -4,8 +4,7 @@ set -ouex pipefail
 
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 dnf5 install -y tmux 
-dnf5 install -y plasma-desktop
-dnf5 install -y sddm
+dnf5 install @kde-desktop-environment
 
 # Use a COPR Example:
 #
