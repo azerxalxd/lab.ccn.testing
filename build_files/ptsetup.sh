@@ -5,18 +5,16 @@ curl "https://www.netacad.com/authoring-resources/courses/ff9e491c-49be-4734-803
 
 selected_installer="pt.deb"
 sudo dnf -y install binutils fuse fuse-libs qt5-qttools
-#! test -d /home/$user_name/.local/share/applications && sudo mkdir /home/$user_name/.local/share/applications
 mkdir packettracer
 ar -x $selected_installer --output=packettracer
 tar -xvf packettracer/control.tar.xz --directory=packettracer
 tar -xvf packettracer/data.tar.xz --directory=packettracer 
-sudo cp -r packettracer/opt /var/
-! test -d /usr/local/bin && sudo mkdir -p /var/usr/local/bin
-sudo ln -sf /opt/pt/packettracer.AppImage /var/usr/local/bin/packettracer # This seems to work but throws an error at build time
-ls /var/usr/local/bin -all
-#/opt/pt/packettracer --pt-activate
+sudo cp -r packettracer/* /var/
+! test -d /var/usr/local/bin && sudo mkdir -p /var/usr/local/bin
+sudo ln -sf /var/opt/pt/packettracer.AppImage /var/usr/local/bin/packettracer
+/var/opt/pt/packettracer --pt-activate
 sudo ./packettracer/postinst
-sudo xdg-desktop-menu uninstall /usr/share/applications/cisco-pt*.desktop
-sudo update-mime-database /usr/share/mime
-sudo gtk-update-icon-cache -t --force /usr/share/icons
+sudo xdg-desktop-menu uninstall /var/usr/share/applications/cisco-pt*.desktop
+sudo update-mime-database /var/usr/share/mime
+sudo gtk-update-icon-cache -t --force /var/usr/share/icons
 sudo rm -rf packettracer
