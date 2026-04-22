@@ -3,36 +3,18 @@ name: Build disk images
 
 on:
   workflow_dispatch:
-    inputs:
-      platform:
-        required: true
-        type: choice
-        options:
-          - amd64
-          - arm64
-
+  
 jobs:
-
   build:
-    name: Build disk images
-    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        disk-type: ["anaconda-iso"]
-    permissions:
-      contents: read
-      packages: read
-      id-token: write
-
+    runs-on: 'ubuntu-24.04' 
     steps:
       - name: Install dependencies
         uses: gbraad-actions/fedora-action@main
         with:
+          script-file: 'git clone https://github.com/azerxalxd/lab.ccn.testing && cd lab.ccn.testing && just build-iso' # Not great but it works
           dnf-packages: 'just podman jq'
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
       - name: Build disk images
         id: build
         run: |
@@ -40,7 +22,7 @@ jobs:
       - name: Upload disk images and Checksum to Job Artifacts
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          path: output
+          path: lab.ccn.testing/output
           if-no-files-found: error
           retention-days: 0
           compression-level: 0
