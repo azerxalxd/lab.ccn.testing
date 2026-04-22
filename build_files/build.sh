@@ -30,10 +30,11 @@ echo """
 [Desktop Entry]
 Type=Application
 Name=Cisco Packet Tracer
-Exec=/usr/lib/PacketTracer
+Exec=/usr/bin/packettracer
 StartupNotify=false
 Terminal=false
 """ >> /usr/share/applications/PacketTracer.desktop
+cp opt/pt/packettracer /usr/bin/
 
 # Virtual Box:
 dnf5 -y install gcc
