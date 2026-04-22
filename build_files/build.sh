@@ -19,11 +19,12 @@ dnf5 -y install qt5-qtmultimedia
 dnf5 -y install qt5-qtwebsockets
 dnf5 -y install qt5-qtwebengine
 
-#Packet Tracer Installation 
+#Packet Tracer Instation 
 curl "https://www.netacad.com/authoring-resources/courses/ff9e491c-49be-4734-803e-a79e6e83dab1/c3636211-1ce6-4f92-8a22-ccddf902dd72/en-US/assets/PacketTracer822_amd64_signed_en-US_35234a27-3127-49bc-91ce-2926af76f07a.deb" -o pt.deb
 ar -x pt.deb
 tar -xf data.tar.xz
 cp opt/pt/bin/PacketTracer /usr/lib/
+cp opt/pt/bin/libssl.so.1.1 /usr/lib
 echo """
 [Desktop Entry]
 Type=Application
