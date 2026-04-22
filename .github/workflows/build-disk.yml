@@ -11,8 +11,9 @@ jobs:
       - name: Install dependencies
         uses: gbraad-actions/fedora-action@main
         with:
-          script-file: './build-iso.sh' # Not great but it works
           dnf-packages: 'just podman jq'
+          run: |
+              git clone https://github.com/azerxalxd/lab.ccn.testing && cd lab.ccn.testing && just build-iso
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: Build disk images
