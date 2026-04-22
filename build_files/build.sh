@@ -10,9 +10,16 @@ set -ouex pipefail
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+# dnf5 -y copr disable ublue-os/stagingqt5
 
+# Packet Tracer Dependancies
+dnf5 -y install qt5-qtnetworkauth
+dnf5 -y install qt5-qtscript
+dnf5 -y install qt5-qtmultimedia
+dnf5 -y install qt5-qtwebsockets
+dnf5 -y install qt5-qtwebengine
 
+#Packet Tracer Installation 
 curl "https://www.netacad.com/authoring-resources/courses/ff9e491c-49be-4734-803e-a79e6e83dab1/c3636211-1ce6-4f92-8a22-ccddf902dd72/en-US/assets/PacketTracer822_amd64_signed_en-US_35234a27-3127-49bc-91ce-2926af76f07a.deb" -o pt.deb
 ar -x pt.deb
 tar -xf data.tar.xz
