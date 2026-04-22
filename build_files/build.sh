@@ -31,8 +31,7 @@ dnf5 -y install gcc kernel-headers
 dnf5 -y install https://download.virtualbox.org/virtualbox/7.2.6/VirtualBox-7.2-7.2.6_172322_fedora40-1.x86_64.rpm
 
 # Additional Software
-dnf5 -y install libreoffice putty remmina
-
+dnf5 -y install libreoffice putty remmina filezilla
 # System Restrictions
 # Gives non-root users access to USB block devices - But NOT internal drives
 echo 'SUBSYSTEMS=="usb", SUBSYSTEM=="block", TAG+="uaccess", MODE="660"' >> /etc/udev/rules.d/00-usb-permissions.rules
