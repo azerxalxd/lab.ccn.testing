@@ -2,9 +2,9 @@
 
 ### Installing
 
-The distribution can be installed like normal with an ISO file; but one must be built first (See DEPLOYING).
+The distribution can be installed like normal with an ISO file; but one must be built first (See BUILDING).
 
-### Switching From other OSTREE Distributions
+### Switching From other ostree Distributions
 
 Alongside installing the distro directly with an ISO file, you can switch from any OSTREE based distribution trivially.
 
