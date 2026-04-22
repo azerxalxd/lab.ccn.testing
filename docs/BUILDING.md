@@ -2,6 +2,8 @@
 
 The project uses `just` to build and test container images. Most of the more advanced commands - I.e building iso files, VM images, etc - all require systemd, so must be run on a systemd-based Linux Distribution.
 
+Each commit will be automatically built and a container image deployed (See DEPLOYING) - Expect this to fail on forks since it cannot sign the container image, however, it will still build and publish. You can also manually run a workflow to build a qcow2 VM disk image or ISO file.
+
 ### `just build`
 
 Builds a container image using Podman.
