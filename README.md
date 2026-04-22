@@ -8,9 +8,6 @@ Fedora Kinoite based UBlue image with preinstalled software and restrictions for
 - VirtualBox
 - Remmina
 - PuTTY
-
-## Additions - Work In Progress
-
 - Cisco Packet Tracer
 
 ## Settings/Restrictions
