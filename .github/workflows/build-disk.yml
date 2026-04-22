@@ -12,6 +12,7 @@ on:
           - arm64
 
 jobs:
+
   build:
     name: Build disk images
     runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
@@ -26,11 +27,9 @@ jobs:
 
     steps:
       - name: Install dependencies
-        run: |
-          set -x
-          sudo apt update -y && sudo apt upgrade -y
-          sudo apt install -y \
-            podman jq just
+        uses: gbraad-actions/fedora-action@main
+        with:
+          dnf-packages: 'just podman jq'
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
