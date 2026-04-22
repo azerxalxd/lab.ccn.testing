@@ -3,21 +3,17 @@ name: Build disk images
 
 on:
   workflow_dispatch:
-  
-jobs:
-  build:
-    runs-on: 'ubuntu-24.04' 
-    steps:
-      - name: Setup
-        uses: gbraad-actions/fedora-action@main
+
+container:
+     image: ghcr.io/gbraad-actions/fedora:stable
+     options: --privileged
+   steps:
+     - uses: actions/checkout@v4
+     - run: dnf install -y just jq podman
+     - run: just build-iso
+     - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          dnf-packages: 'just podman jq'
-          run: |
-              git clone https://github.com/azerxalxd/lab.ccn.testing && cd lab.ccn.testing && just build-iso
-      - name: Upload disk images and Checksum to Job Artifacts
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
-        with:
-          path: lab.ccn.testing/output
+          path: output
           if-no-files-found: error
           retention-days: 0
           compression-level: 0
