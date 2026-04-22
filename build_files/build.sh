@@ -45,6 +45,6 @@ dnf5 -y install https://download.virtualbox.org/virtualbox/7.2.6/VirtualBox-7.2-
 dnf5 -y install libreoffice
 dnf5 -y install putty
 dnf5 -y install remmina
-
+dnf5 -y install filezilla
 
 echo 'SUBSYSTEMS=="usb", SUBSYSTEM=="block", TAG+="uaccess", MODE="660"' >> /etc/udev/rules.d/00-usb-permissions.rules
