@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     name: Build disk images
-    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-25.10' || 'ubuntu-25.10-arm' }}
     strategy:
       fail-fast: false
       matrix:
