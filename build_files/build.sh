@@ -17,6 +17,14 @@ curl "https://www.netacad.com/authoring-resources/courses/ff9e491c-49be-4734-803
 ar -x pt.deb
 tar -xf data.tar.xz
 cp opt/pt/bin/PacketTracer /usr/lib/
+echo """
+[Desktop Entry]
+Type=Application
+Name=Cisco Packet Tracer
+Exec=/usr/lib/PacketTracer
+StartupNotify=false
+Terminal=false
+""" >> /usr/share/applications/PacketTracer.desktop
 
 # Virtual Box:
 dnf5 -y install gcc
