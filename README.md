@@ -1,29 +1,4 @@
-# Fedora Linux Ublue Lab Image
+# This repository has been moved under an organisation and such the original repository has been archived
+All updated versions can be found under the here:
 
-Fedora Kinoite based UBlue image with preinstalled software and restrictions for use in education.
-
-## Additions
-
-### Main Additions:
-
-- Cisco Packet Tracer
-- VirtualBox
-
-### Misc Additions
-
-- LibreOffice
-- Remmina
-- PuTTY
-- Cisco Packet Tracer
-- FileZilla
-
-## TODO:
-
-- Tidy Up
-- Final additions or restrictions
-- Any other tasks that we get tied up doing
-
-
-## Settings/Restrictions
-
-USB Storage allowed for non root users
+[Organisation](https://www.github.com/lab-ccn/lab.ccn)
