@@ -3,19 +3,21 @@ name: Build disk images
 
 on:
   workflow_dispatch:
-
-container:
-     image: ghcr.io/gbraad-actions/fedora:stable
-     options: --privileged
-   steps:
-     - uses: actions/checkout@v4
-     - run: dnf install -y just jq podman
-     - run: just build-iso
-     - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
-        with:
-          path: output
-          if-no-files-found: error
-          retention-days: 0
-          compression-level: 0
-          overwrite: true
-      
+jobs:
+  build:
+    runs-on: ubunu-24.04
+  container:
+       image: ghcr.io/gbraad-actions/fedora:stable
+       options: --privileged
+     steps:
+       - uses: actions/checkout@v4
+       - run: dnf install -y just jq podman
+       - run: just build-iso
+       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+          with:
+            path: output
+            if-no-files-found: error
+            retention-days: 0
+            compression-level: 0
+            overwrite: true
+        
