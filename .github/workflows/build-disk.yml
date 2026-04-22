@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     name: Build disk images
-    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04.04' || 'ubuntu-24.04.04-arm' }}
+    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     strategy:
       fail-fast: false
       matrix:
@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           set -x
-          sudo apt update -y
+          sudo apt update -y && sudo apt upgrade -y
           sudo apt install -y \
             podman jq just
       - name: Checkout
