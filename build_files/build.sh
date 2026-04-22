@@ -25,6 +25,7 @@ ar -x pt.deb
 tar -xf data.tar.xz
 cp opt/pt/bin/PacketTracer /usr/lib/
 cp opt/pt/bin/libssl.so.1.1 /usr/lib
+cp opt/pt/bin/libcrypto.so.1.1 /usr/lib
 echo """
 [Desktop Entry]
 Type=Application
