@@ -8,16 +8,12 @@ jobs:
   build:
     runs-on: 'ubuntu-24.04' 
     steps:
-      - name: Install dependencies
+      - name: Setup
         uses: gbraad-actions/fedora-action@main
         with:
           dnf-packages: 'just podman jq'
           run: |
               git clone https://github.com/azerxalxd/lab.ccn.testing && cd lab.ccn.testing && just build-iso
-      - name: Build disk images
-        id: build
-        run: |
-          just build-iso
       - name: Upload disk images and Checksum to Job Artifacts
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
